@@ -23,7 +23,7 @@ public class SearchTest extends BaseTest {
         Assert.assertTrue(searchResultsPage.isPageLoaded(),
                 "SearchResults Page is not loaded.");
 
-        sleep(5000);
+        sleep(3000);
 
         List<String> searchResultsList = searchResultsPage.getSearchResults();
 

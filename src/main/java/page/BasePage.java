@@ -19,20 +19,6 @@ public abstract class BasePage {
         this.webDriver = webDriver;
     }
 
-    /**
-     * @return The current URL of the page
-     */
-    public String getCurrentUrl() {
-        return webDriver.getCurrentUrl();
-
-    }
-
-    /**
-     * @return The current Title of the page
-     */
-    public String getCurrentTitle() {
-        return webDriver.getTitle();
-    }
 
     /**
      * @return The current page is loaded
@@ -40,7 +26,11 @@ public abstract class BasePage {
 
     public abstract boolean  isPageLoaded();
 
-    }
+
+
+
+
+}
 
 
 

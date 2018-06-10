@@ -5,8 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import static java.lang.Thread.sleep;
 
@@ -24,7 +23,7 @@ public class GooglePage extends BasePage {
 
         super(webDriver);
         PageFactory.initElements(webDriver, this);
-        //waitUntilElementIsVisible(searchButton, 5);
+
     }
 
     public boolean isPageLoaded() {
@@ -35,7 +34,6 @@ public class GooglePage extends BasePage {
     public SearchResultsPage search(String searchTerm) throws InterruptedException {
         searchField.sendKeys(searchTerm);
         sleep(1000);
-        //searchField.sendKeys(Keys.RETURN);
         searchButton.click();
         searchField.sendKeys(Keys.ENTER);
         return new SearchResultsPage(webDriver);
@@ -43,19 +41,7 @@ public class GooglePage extends BasePage {
 
     }
 
-    public WebElement waitUntilElementIsVisible (WebElement webElement, int timeOutInSeconds){
-        WebDriverWait wait = new WebDriverWait(webDriver, timeOutInSeconds);
-        wait.until(ExpectedConditions.visibilityOf(webElement));
-        return webElement;
-    }
 
-    //public  login(String email, String password) {
-    //loginField.sendKeys(email);
-    //passwordField.sendKeys(password);
-    //loginButton.click();
-    //return PageFactory.initElements(webDriver, LinkedinHomePage.class);
-    // or
-    //return new LinkedinHomePage(webDriver);
 }
 
 

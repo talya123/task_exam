@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +15,8 @@ public class SearchResultsNavigationPage extends BasePage {
     @FindBy(xpath = "//div[@id='topabar']/div[@class='ab_tnav_wrp']")
     private WebElement searchResultsCount;
 
-    //@FindBy(xpath ="//*[@id='navcnt']")
-    //private WebElement searchResultsCount;
+    @FindBy(xpath ="//*[@id='navcnt']")
+    private WebElement navigationPanel;
 
     @FindBy(xpath = "//div[@class='srg']/div[@class='g']")
     private List<WebElement> searchResultElements;
@@ -31,7 +29,7 @@ public class SearchResultsNavigationPage extends BasePage {
     }
 
     public boolean isPageLoaded() {
-        return searchResultsCount.isDisplayed();
+          return searchResultsCount.isDisplayed();
     }
 
 

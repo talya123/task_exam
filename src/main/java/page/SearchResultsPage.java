@@ -5,8 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,8 @@ public class SearchResultsPage extends BasePage {
     }
 
     public boolean isPageLoaded() {
-        return searchResultsCount.isDisplayed();
+         return searchResultsCount.isDisplayed();
+
     }
 
     public List<String> getSearchResults() {

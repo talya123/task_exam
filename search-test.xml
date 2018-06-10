@@ -2,9 +2,9 @@
 
 <suite name="Test">
 
-    <test name="Login Tests Chrome">
-        <parameter name="browserType" value="Chrome"/>
-        <parameter name="envURL" value="https://www.linkedin.com/" />
+    <test name="Login Tests FireFox">
+        <parameter name="browserType" value="firefox"/>
+        <parameter name="envURL" value="https://www.google.com/" />
         <classes>
             <class name="test.SearchTest" />
         </classes>
