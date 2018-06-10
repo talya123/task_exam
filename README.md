@@ -10,3 +10,8 @@ How to run tests from this project:
 6.To run test from command line use following command:
 mvn clean install -DTest=search-test.xml
  where search-test.xml is a name of specific TestNG xml file with tests.
+ 
+The pom.xml file contains information of project and configuration information for the maven to build the project such as dependencies, build directory, source directory, test source directory, plugin, goals etc.
+Maven reads the pom.xml file, then executes the goal.
+
+.gitignore files contain patterns that are matched against file names in your repository to determine whether or not they should be ignored.
