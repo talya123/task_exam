@@ -14,22 +14,37 @@ import java.util.List;
 
 public class SearchResultsNavigationPage extends BasePage {
 
-
-    @FindBy(xpath ="//*[@id='navcnt']")
+    @FindBy(xpath = "//div[@id='topabar']/div[@class='ab_tnav_wrp']")
     private WebElement searchResultsCount;
 
-    @FindBy(xpath = "//a[contains(@aria-label, 'Page 2')]")
+    //@FindBy(xpath ="//*[@id='navcnt']")
+    //private WebElement searchResultsCount;
+
+    @FindBy(xpath = "//div[@class='srg']/div[@class='g']")
     private List<WebElement> searchResultElements;
 
 
     public SearchResultsNavigationPage(WebDriver webDriver) {
         super(webDriver);
         PageFactory.initElements(webDriver, this);
-        //waitUntilElementIsVisible(searchResultsCount, 5);
+
     }
 
     public boolean isPageLoaded() {
         return searchResultsCount.isDisplayed();
+    }
+
+
+    public List<String> getSearchResults() {
+        List<String> searchResultsList = new ArrayList();
+        for (WebElement searchResultElement : searchResultElements) {
+            ((JavascriptExecutor) webDriver)
+                    .executeScript("arguments[0].scrollIntoView();", searchResultElement);
+            String searchResultText = searchResultElement.getText();
+            searchResultsList.add(searchResultText);
+        }
+
+        return searchResultsList;
     }
 
        }

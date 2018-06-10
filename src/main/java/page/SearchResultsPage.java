@@ -14,13 +14,11 @@ import java.util.List;
 
 public class SearchResultsPage extends BasePage {
 
-    @FindBy(xpath = "//div[@id='resultStats']")
+
+    @FindBy(xpath = "//div[@id='topabar']/div[@class='ab_tnav_wrp']")
     private WebElement searchResultsCount;
 
-    //@FindBy(xpath = "//div[contains(@class, 'rc')]")
-    //private List<WebElement> searchResultElements;
-
-    @FindBy(xpath = "//span[contains(@class, 'st')]")
+    @FindBy(xpath = "//div[@class='srg']/div[@class='g']")
     private List<WebElement> searchResultElements;
 
     @FindBy(xpath = "//a[@aria-label='Page 2']")
@@ -29,7 +27,7 @@ public class SearchResultsPage extends BasePage {
     public SearchResultsPage(WebDriver webDriver) {
         super(webDriver);
         PageFactory.initElements(webDriver, this);
-        //waitUntilElementIsVisible(searchResultsCount, 5);
+
     }
 
     public boolean isPageLoaded() {
@@ -49,21 +47,14 @@ public class SearchResultsPage extends BasePage {
     }
 
 
-    public WebElement waitUntilElementIsVisible(WebElement webElement, int timeOutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(webDriver, timeOutInSeconds);
-        wait.until(ExpectedConditions.visibilityOf(webElement));
-        return webElement;
-    }
+
 
     public SearchResultsNavigationPage clickOnPagingLink() {
         goToNextPageLink.click();
         return new SearchResultsNavigationPage(webDriver);
     }
 
-    public void isTextPresent() {
-        searchResultsCount.getText().contains("Приблизна кількість результатів");
 
-    }
 }
 
 
